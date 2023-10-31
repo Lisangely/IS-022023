@@ -1,0 +1,6 @@
+@startuml 
+
+FP o-- "2" Operandos
+Operandos <|-- UFC
+Operandos <|-- TCF
+TCF ..> FI

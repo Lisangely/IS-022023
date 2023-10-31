@@ -1,0 +1,8 @@
+@startuml 
+TrabajoInvestigacion <|-- TEG
+TrabajoInvestigacion <|-- TGM
+TrabajoInvestigacion "1..2" -- "1.*" Profesor : Revisado
+TEG "0..1" -- EstudiantePostgrado
+TGM "1..2" -- EstudiantePregrado
+
+@enduml

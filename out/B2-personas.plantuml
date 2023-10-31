@@ -1,0 +1,18 @@
+@startuml
+class Personas{
+    - Nombre : string 
+    - Telefono : int 
+    - Direccion : string 
+}
+class Estudiantes{
+    - Carrera : string 
+}
+class Profesores{
+    + Curso : string 
+}
+class Empleados{
+    + void Trabajar()
+}
+Personas <|-- Empleados
+Personas <|-- Estudiantes
+Empleados <|-- Profesores

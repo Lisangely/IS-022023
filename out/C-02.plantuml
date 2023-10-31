@@ -1,0 +1,27 @@
+@startuml 
+object "Poligono:01" as P1
+object "Poligono:02" as P2
+object "Punto" as P3
+P3 : CoordenadasX=2.4
+P3 : CoordenadasY=2.8
+object "Punto" as P4
+object "Punto" as P5
+object "Punto" as P6
+object "Punto" as P7
+P4 : CoordenadasX=1.5
+P4 : CoordenadasY=1.8
+P5 : CoordenadasX=1.6
+P5 : CoordenadasY=2
+P6 : CoordenadasX=0.5
+P6 : CoordenadasY=0.9
+P7 : CoordenadasX=3.5
+P7 : CoordenadasY=3.9
+
+P1 -- P3
+P2 -- P3
+P1 -- P4
+P1 -- P5
+P2 -- P6
+P2 -- P7
+
+@enduml

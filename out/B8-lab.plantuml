@@ -1,0 +1,8 @@
+@startuml 
+
+Laboratorio <|-- LaboratorioNuclear
+Equipos <|-- EquiposNucleares
+LaboratorioNuclear "1.*" -- "1" EquiposNucleares
+Laboratorio "1.*" -- "*" Equipos
+
+@enduml

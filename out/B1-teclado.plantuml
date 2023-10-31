@@ -1,0 +1,12 @@
+@startuml
+Teclado *-- "105" Teclas 
+class Teclado {
+    + void PresionarTecla()
+    + Teclas Teclas[]
+}
+class Teclas {
+    + string Letra
+    + string Funcion
+    + bool Estado
+}
+

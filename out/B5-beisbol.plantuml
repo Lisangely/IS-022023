@@ -1,0 +1,9 @@
+@startuml 
+
+class Estadio{
+ + Nombre : string
+}
+Equipo o-- Jugadores
+Equipo *-- Estadio 
+
+@enduml
