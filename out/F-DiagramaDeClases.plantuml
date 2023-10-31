@@ -1,0 +1,33 @@
+@startuml 
+
+Class Equipo_Volleyball{
+    # Nombre : string
+    # Registro : int
+}
+class Juegos{
+    + Localidad : string 
+    + Puntuacion : int
+}
+class Persona{
+    + Telefono : int
+    + Nombre : string
+    # Direccion : string 
+}
+class Entrenador{
+    + NivelAcreditacion : int
+    + AñosExperiencia : int
+
+}
+class Jugador{
+    + Numero : int 
+    + Posicion : string 
+
+}
+class Capitan
+
+Equipo_Volleyball "1" -- "1.*" Entrenador
+Equipo_Volleyball "6..20" -- Jugador : Tiene
+Persona <|-- Entrenador
+Persona <|-- Jugador
+Jugador <|-- Capitan
+Equipo_Volleyball -- "1.*" Juegos : Competencias
