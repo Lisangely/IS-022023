@@ -1,29 +1,50 @@
+@startuml
 
-object " Equipo_Volleyball" as J1
-J1 : Nombre = Voley
-J1 : Registro = 212 
-
-object "Venezuela vs Colombia : Juegos" as J4
-J4 : Localidad = Panamericanos, Chile 
-J4 : Puntuacion = 3-0
-
-object "Capitan" as J3
-J3 : Telefono = 0414119211
-J3 : Nombre = Rafael Rivas
-J3 : Direccion = Avenida principal...
-J3 : Numero = 27
-J3 : Posicion = Centrocampista
-
-
-object " Entrenador" as J2
-J2 : Telefono = 04142321245
-J2 : Nombre = Jose Hererro
-J2 : Direccion = Avenida Urdaneta...
-J2 : Nivel_acreditacion = 12
-J2 : Num_años_experiencia = 20
-
-J1 -- J3
-J1 -- J2
-J1 -- J4
+object "EquipoVolleyball_Venezuela" as P3{
+    Nombre = Venezuela
+    Registro = 73
+}
+object " Jugador" as P1{
+    Telefono = 04141192111
+    Nombre = Javier
+    Direccion = Caracas, Venezuela
+    Numero = 19
+    Posicion = Delantero
+}
+object " Entrenador" as P2{
+    Telefono = 04120975475
+    Nombre = Josue
+    Direccion = Barinas, Venezuela
+    NivelAcreditacion = Institucional
+    AñosEperiencia = 12
+}
+object "EquipoVolleyball_Colombia" as P5{
+    Nombre = Colombia
+    Registro = 87
+}
+object " Jugador" as P6{
+    Telefono = 04126319661
+    Nombre = Luis
+    Direccion = Bogota, Colombia
+    Numero = 22
+    Posicion = Armador
+}
+object " :Entrenador" as P7{
+    Telefono = 04142876542
+    Nombre = Santiago 
+    Direccion = Santander, Colombia
+    NivelAcreditacion = Institucional
+    AñosExperiencia = 13
+}
+object "Juegos: Venezuela vs. Colombia" as P4{
+    Localidad = Chile 
+    Puntuacion = 3-2
+}
+P3 o-right- P1
+P3 o-left- P2
+P4 -up-* P3
+P5 o-right- P6
+P5 o-left- P7
+P4 -down-* P5
 
 @enduml

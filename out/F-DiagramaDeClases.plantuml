@@ -16,12 +16,10 @@ class Persona{
 class Entrenador{
     + NivelAcreditacion : int
     + AñosExperiencia : int
-
 }
 class Jugador{
     + Numero : int 
     + Posicion : string 
-
 }
 class Capitan
 
@@ -30,4 +28,5 @@ Equipo_Volleyball "6..20" -- Jugador : Tiene
 Persona <|-- Entrenador
 Persona <|-- Jugador
 Jugador <|-- Capitan
+Equipo_Volleyball -- Capitan
 Equipo_Volleyball -- "1.*" Juegos : Competencias
