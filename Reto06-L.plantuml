@@ -1,0 +1,26 @@
+@startuml 
+
+[*] --> ColocarProducto : Encargar Producto
+ColocarProducto --> ValidarPedido : Colocar Pedido
+ValidarPedido --> Validar : Cobrar Pago
+Validar --> Validar : Validar Pago
+Validar --> ObtenerProducto : EnviarProducto
+
+state C <<choice>>
+ObtenerProducto --> C
+C --> EnviarUrgente : Urgente
+C --> EnviarOrdinario : No Urgente
+
+state joinn_state <<join>>
+EnviarUrgente --> joinn_state
+EnviarOrdinario --> joinn_state
+
+
+joinn_state --> Realizado
+
+Realizado --> Realizado : Dar cerveza a los transportistas
+Realizado --> Realizado : Agregar a lista de clientes satisfechos
+Realizado --> [*] : FinzalizarVenta
+
+
+@enduml

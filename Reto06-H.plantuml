@@ -1,0 +1,40 @@
+@startuml 
+
+skinparam noteBackgroundColor transparent
+skinparam noteBorderColor transparent
+
+object ":CatalogoProducto" as Catalogo
+object ":Actor" as Usuario
+object ":Registro" as Registro
+object "Venta :Ventas" as Venta
+object ":LineaVenta" as Linea
+object "ListaVenta :List" as List 
+
+hide members
+
+Usuario -r-> Registro
+note on link
+    IntroducirArticulo()
+end note
+
+Registro -u-> Catalogo
+note on link
+   1:espec=getEspecificacion(ID)
+end note
+
+Registro -d-> Venta 
+note on link
+   2:CrearLineaVenta(espec, cant)
+end note
+
+Venta -d-> List
+note on link
+    3:anadir(LineaVenta)
+end note
+
+List --> Linea
+note on link
+    4:new LineaVenta(espec,cant)
+end note
+
+@enduml
