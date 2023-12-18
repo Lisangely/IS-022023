@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Objects;
 import java.io.File;
 import java.io.*;
 
@@ -126,10 +127,8 @@ class B {
                     teachers[i].Visited();
                     totality += teachers[i].getCt();
                     summary += (teachers[i].getMu()*teachers[i].getCt());
-                    int name1= Integer.valueOf(name);
                          for(int j=0; j<lines;j++){
-                              int name2= Integer.valueOf(teachers[j].name());
-                            if((name1==name2) && (teachers[j].Visit())){   
+                            if(Objects.equals(name,teachers[j].name()) && teachers[j].Visit()){   
                             teachers[j].Visited();
                             totality += teachers[j].getCt();
                             summary += (teachers[j].getMu()*teachers[j].getCt());
@@ -149,7 +148,6 @@ class B {
         } catch (Exception e) {
             e.printStackTrace();
     }
-        br.close();
-        
+        br.close();   
  }
 }
