@@ -1,4 +1,4 @@
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Objects;
@@ -111,43 +111,6 @@ class B {
         datas[i] = new Data(desc, ct, mu, dd, mm, aaaa, nf, ci);
         teachers[i]= new Teacher(ci, ct, mu, i);
         }
-        double summary=0;
-        String ruta = "src/reporte.txt";
-        int totality=0;
-        try { File file = new File(ruta);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-               for(int i=0; i<lines;i++){
-                 String name = teachers[i].name();
-                 if(teachers[i].Visit()){
-                    bw.write(teachers[i].name());
-                    teachers[i].Visited();
-                    totality += teachers[i].getCt();
-                    summary += (teachers[i].getMu()*teachers[i].getCt());
-                         for(int j=0; j<lines;j++){
-                            if(Objects.equals(name,teachers[j].name()) && teachers[j].Visit()){   
-                            teachers[j].Visited();
-                            totality += teachers[j].getCt();
-                            summary += (teachers[j].getMu()*teachers[j].getCt());
-                            }
-                            if(j==lines-1){
-                                bw.write(totality);
-                                String BS = String.valueOf(summary);
-                                bw.write(BS);
-                                bw.newLine();
-                                totality=0;
-                                summary=0;
-                        }
-                    }
-                }
-            }
-            bw.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+ 
     }
-        br.close();   
- }
-}
+}*/
