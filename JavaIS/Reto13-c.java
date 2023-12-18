@@ -1,116 +1,32 @@
-/*import java.io.BufferedReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Objects;
-import java.io.File;
-import java.io.*;
 
-class Teacher{
-    String ci ="NO";
-    int ct;
-    double mu;
-    boolean visit;
-    int num;
-
-    Teacher(String ci, int ct, double mu, int n){
-        this.ci = ci;
-         this.ct = ct;
-          this.mu = mu;
-        this.visit=true;
-        num=n;
-    }
-    int numm(){
-        return num;
-    }
-    int getCt(){
-        return ct;
-    }
-    double getMu(){
-        return mu;
-    }
-    boolean Visit(){
-        return visit;
-    }
-    void Visited(){
-        visit=false;
-    }
-    String name(){
-        return ci;
-    }
-}
-class Data{
-    String desc;
-    int ct;
-    double mu;
-    int dd;
-    int mm;
-    int aaaa;
-    String nf;
-    String ci;
-
-    public Data(String desc, int ct,double mu, int dd, int mm, int aaaa, String nf,String ci){
-        this.desc = desc;
-        this.ct=ct;
-        if(dd>=1 && dd<=31){
-        this.dd=dd;
-        }
-        if(mm>=1 && mm<=31){
-        this.mm=mm;
-        }
-        if(aaaa>=1968){
-        this.aaaa=aaaa;
-        }
-        this.nf = nf;
-        this.ci=ci;
-    }
-    int getCt(){
-        return ct;
-    }
-    double getMu(){
-        return mu;
-    }
-    String getCi(){
-        return ci;
-    }
-}
-
-class B {
-    public static void main(String[] args) throws Exception {
-       int lines = 0;
+ class ContarLineasArchivo {
+    public static void main(String[] args) {
+        long lNumeroLineas = 0;
+		
 		try {
-			FileReader fr = new FileReader("src/inventario.txt");
+			FileReader fr = new FileReader("src/tu_archivo.txt");
+		
 			BufferedReader bf = new BufferedReader(fr);
+			
 			while ((bf.readLine())!=null) {
-			  lines++;
+			  lNumeroLineas++;
 			}
+			
+			bf.close();
+			
 		} catch (FileNotFoundException fnfe){
 			  fnfe.printStackTrace();
 		} catch (IOException ioe){
 		  ioe.printStackTrace();
 		}
-        Teacher teachers[] = new Teacher[lines];
-        Data datas[] = new Data[lines];
-        
-        File archive = new File ("src/inventario.txt");
-        FileReader fr = new FileReader (archive);
-        BufferedReader br = new BufferedReader(fr);
+		
+		System.out.println("El fichero tiene " + lNumeroLineas + " lineas");
+		
+	}
 
-        for(int i=0; i<lines;i++){
-            String input = br.readLine().trim();
-            String[] parts = input.split("#");
-                String desc = parts[0].trim();
-                //System.out.println(desc);
-                int ct = Integer.parseInt(parts[1].trim());
-                double mu = Double.parseDouble(parts[2].trim());
-                String[] fechaParts = parts[3].trim().split("/");
-                int dd = Integer.parseInt(fechaParts[0]);
-                int mm = Integer.parseInt(fechaParts[1]);
-                int aaaa = Integer.parseInt(fechaParts[2]);
-                String nf = parts[4].trim();
-                String ci = parts[5].trim();
-        datas[i] = new Data(desc, ct, mu, dd, mm, aaaa, nf, ci);
-        teachers[i]= new Teacher(ci, ct, mu, i);
-        }
- 
     }
-}*/
+
