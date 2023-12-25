@@ -73,7 +73,6 @@ class Data{
         return ci;
     }
 }
-
 class B {
     public static void main(String[] args) throws Exception {
        int lines = 0;
@@ -128,7 +127,7 @@ class B {
                     totality += teachers[i].getCt();
                     summary += (teachers[i].getMu()*teachers[i].getCt());
                          for(int j=0; j<lines;j++){
-                            if(Objects.equals(name,teachers[j].name()) && teachers[j].Visit()){   
+                            if(Objects.equals(name,teachers[j].name()) && teachers[j].Visit()){ 
                             teachers[j].Visited();
                             totality += teachers[j].getCt();
                             summary += (teachers[j].getMu()*teachers[j].getCt());
