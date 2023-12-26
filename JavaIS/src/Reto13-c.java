@@ -1,13 +1,9 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Objects;
-
+import java.awt.Container;
 import javax.swing.*;
 import java.awt.event.*;
 
-	class Data{
+	class Data {
     String desc;
     int ct;
     double mu;
@@ -90,9 +86,10 @@ class Frame1 extends JFrame implements ActionListener {
         this.mu = mu;
 		this.cont=cont;
 
-		report2 = new JTextArea("C.I. Responsable	 Cantidad equipos	Monto total(Bs.)");
+		report2 = new JTextArea("C.I. Responsable	 Cantidad equipos	Monto total(Bs.)"+ "\n");
+		report2.setEditable(false);
 		panel = new JScrollPane(report2);
-		panel.setBounds(10, 50, 100, 180);
+		panel.setBounds(20, 50, 400, 80);
 
 		type = new JLabel("Tipo reporte:");
 		type.setBounds(15, -230, 200, 500);
@@ -145,27 +142,49 @@ class Frame1 extends JFrame implements ActionListener {
 			
 	}
 	public void actionPerformed(ActionEvent e){
+		if(election1.isSelected()){
+			Container container = getContentPane();
+      		container.remove(panel);
+			totality.setText("Totalizacion:");
+			totality1.setText("___ equipos");
+			totality2.setText("_______ Bs.");
+      		totality.setBounds(40, -100, 200, 500);
+			totality1.setBounds(40, -80, 200, 500);
+			totality2.setBounds(40, -60, 200, 500);
+			container.revalidate();
+     	    container.repaint();
+			add(teacher);
+			add(teacherText);
+			add(total);
+		}
 		if(e.getSource()==total && election1.isSelected()){
 			String ci1 = teacherText.getText();
-			System.out.println(ci1);
 			double summary=0;
         	int totality=0;
             for(int i=0 ; i<=cont ; i++){
-				System.out.println("//"+cont);
                 if(ci1.equals(ci[i])){
-					System.out.println("==");
 			        totality += Integer.parseInt(ct[i]);
 					summary += Double.parseDouble(mu[i])*(Integer.parseInt(ct[i]));
                 }
             }
 			totality1.setText(totality+" equipos");
 			totality2.setText(summary+" Bs.");
+			totality=0;
+			summary=0;
 		}
 		if(election2.isSelected()){
-			remove(total);
-			remove(teacherText);
-			remove(teacher);
-			add(report2);
+			Container container = getContentPane();
+      		container.remove(total);
+        	container.remove(teacherText);
+			container.remove(teacher);
+			totality.setText("Totalizacion:");
+			totality1.setText("___ equipos");
+			totality2.setText("_______ Bs.");
+      		totality.setBounds(40, -60, 200, 500);
+			totality1.setBounds(40, -40, 200, 500);
+			totality2.setBounds(40, -20, 200, 500);
+			container.revalidate();
+     	    container.repaint();
 			add(panel);
 	}
 		if(e.getSource()==continu &&election2.isSelected()){
@@ -180,11 +199,13 @@ class Frame1 extends JFrame implements ActionListener {
 					for(int j=0 ; j<=cont ; j++){
             		    if(ci2.equals(ci[j])&& (visit[j]!=-1)){
 			 		        totality += Integer.parseInt(ct[j]);
-							summary += Double.parseDouble(mu[j])*totality;
+							summary += Double.parseDouble(mu[j])*(Integer.parseInt(ct[i]));
 							visit[j]=-1;
            	    		}
           		  	}
-				report2.append(ci2+" 	"+totality+"	"+summary);	
+				report2.append(ci2+" 		 "+totality+"		 "+summary+"\n");
+				totality=0;
+				summary=0;	
            		}
 			}	
 		}
